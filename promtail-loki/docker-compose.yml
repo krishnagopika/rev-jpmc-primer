@@ -1,0 +1,39 @@
+version: '3.8'
+services:
+  fastapi-app:
+    image: krishnagopika4/fastapi-app-logging:1.0.0
+    container_name: fastapi-app
+    ports:
+      - "80:80"
+    volumes:
+      - app-logs:/var/logs
+    restart: unless-stopped
+    labels:
+      - "logging=true"
+      - "app=fastapi"
+
+  promtail:
+    image: grafana/promtail:2.9.3
+    container_name: promtail
+    volumes:
+      - app-logs:/var/logs
+      - ./promtail:/etc/promtail
+    command: -config.file=/etc/promtail/config.yml
+    depends_on:
+      - loki
+    restart: unless-stopped
+
+  loki:
+    image: grafana/loki:2.9.3
+    container_name: loki
+    ports:
+      - "3100:3100"
+    volumes:
+      - ./loki:/etc/loki
+      - loki-data:/loki
+    command: -config.file=/etc/loki/config.yml
+    restart: unless-stopped
+
+volumes:
+  app-logs:
+  loki-data:
