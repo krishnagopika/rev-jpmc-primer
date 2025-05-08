@@ -105,10 +105,6 @@ Node exporter full dashboard - 1860
 - [grafana installation](https://grafana.com/docs/grafana/latest/setup-grafana/installation/debian/)
 
 
-**Assignment:**
+**Self Study:**
 
 1. Set up the Blackbox Exporter to monitor an HTTP endpoint (e.g., http://example.com) and visualize the results in Grafana using a pre-built dashboard.
-
-
-
-
