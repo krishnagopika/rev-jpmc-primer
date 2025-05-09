@@ -222,8 +222,7 @@ SSH (Secure Shell) log files contain valuable information about remote access to
 2. Identify top users or source IP addresses accessing the SSH server
 3. Analyze successful vs. failed SSH login attempts
 4. Analyze failed login attempts
-5. Identify users with multiple failed login attempts
-6. Analyze user session durations
+5. Identify users or source IP with multiple failed login attempts
 7. visualization: 
     - Success vs Failed login pie chart
     - Trend of failed logins over time (timechart)
